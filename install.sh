@@ -13,7 +13,7 @@ hdiutil detach /Volumes/Git-*Intel-Leopard/
 sudo installer -pkg git*.pkg -target "/"
 
 ## Install Rubygems from source
-curl -O http://rubyforge.org/frs/download.php/45905/rubygems-1.3.1.tgz
+curl -OLv http://rubyforge.org/frs/download.php/45905/rubygems-1.3.1.tgz
 tar -xvf rubygems*.tgz
 rm rubygems.tgz
 cd rubygems*
