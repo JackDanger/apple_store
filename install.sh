@@ -43,3 +43,10 @@ echo "You're using RubyGems version `gem -v`"
 
 
 
+## Retrieve and Install SQLite Binary
+cd $HERE/src
+curl -OL http://www.sqlite.org/sqlite3-3.6.10-osx-x86.bin.gz
+gunzip sqlite*.gz
+mv sqlite*.bin $HERE/bin
+ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite
+ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite3
