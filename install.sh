@@ -50,3 +50,10 @@ gunzip sqlite*.gz
 mv sqlite*.bin $HERE/bin
 ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite
 ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite3
+
+echo "
+If you start a new bash session you'll need to enter the following
+command to get the right environment set up:
+
+    source $HERE/bash_env
+"
