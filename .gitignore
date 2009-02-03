@@ -1,1 +1,7 @@
-_work
+src
+bin
+git
+lib
+bash_env
+.gems
+
