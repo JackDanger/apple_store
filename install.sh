@@ -8,8 +8,8 @@ mkdir -p $HERE/.gems
 ## Setup local environment
 cat > $HERE/bash_env <<-EOF
 export GEM_HOME="$HERE/.gems"
-export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/1.8"
-export PATH="$HERE/bin:$HERE/git/bin:$HERE/git/libexec/git-core/:$HERE/.gems/bin:$PATH"
+export GEM_PATH="\$GEM_HOME:/usr/lib/ruby/gems/1.8"
+export PATH="$HERE/bin:$HERE/git/bin:$HERE/git/libexec/git-core/:$HERE/.gems/bin:\$PATH"
 EOF
 source $HERE/bash_env
 
@@ -57,3 +57,6 @@ a terminal session to work for you:
 
     source $HERE/bash_env
 "
+
+## Install some gems you'll almost certainly need
+gem install rails rack sqlite3 --no-ri --no-rdoc
