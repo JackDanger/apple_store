@@ -58,5 +58,21 @@ a terminal session to work for you:
     source $HERE/bash_env
 "
 
+## Fix RubyGems binary
+cat > $HERE/bin/gem <<-EOF
+require 'rubygems'
+require 'rubygems/gem_runner'
+require 'rubygems/exceptions'
+args = !ARGV.include?("--") ? ARGV.clone : ARGV[0...ARGV.index("--")]
+begin
+  Gem::GemRunner.new.run args
+rescue Gem::SystemExitException => e
+  exit e.exit_code
+end
+EOF
+
+## Update RubyGems internally
+gem update --system
+
 ## Install some gems you'll almost certainly need
 gem install rails rack sqlite3 --no-ri --no-rdoc
