@@ -69,9 +69,11 @@ EOF
 
 ## Update RubyGems internally
 gem update --system
-
-## Install some gems you'll almost certainly need
+# don't forget Scott, Chris, P.J., and Tom:
+gem sources --add http://gems.github.com
+# you'll likely need these
 gem install rails rack ZenTest --no-ri --no-rdoc
+
 ## Install sqlite3-ruby precompiled for OS X 10.5.* and Intel chips
 cd $HERE/src
 curl -LO http://github.com/JackDanger/apple_store/raw/1afcd2bacdf4c9631b8ed966b4a9c18a7b204bc4/sqlite3-ruby-1.2.4_precompiled.tgz
@@ -82,7 +84,7 @@ mv sqlite3-ruby $HERE/.gems/gems/sqlite3-ruby-1.2.4
 ## Print Bash instructions
 echo "
 You'll need to type the following command each time you want
-a terminal session to work for you:
+a terminal session to work for you (that includes right now):
 
     source $HERE/bash_env
 "
