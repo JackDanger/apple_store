@@ -52,8 +52,8 @@ ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite
 ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite3
 
 echo "
-If you start a new bash session you'll need to enter the following
-command to get the right environment set up:
+You'll need to type the following command each time you want
+a terminal session to work for you:
 
     source $HERE/bash_env
 "
