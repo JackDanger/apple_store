@@ -34,7 +34,7 @@ mv lib libexec man share contrib bin $HERE/git/
 
 ## Install Rubygems from source
 cd $HERE/src
-curl -OLv http://rubyforge.org/frs/download.php/45905/rubygems-1.3.1.tgz
+curl -OL http://rubyforge.org/frs/download.php/45905/rubygems-1.3.1.tgz
 tar -xvf rubygems*.tgz
 rm rubygems.tgz
 cd rubygems*
