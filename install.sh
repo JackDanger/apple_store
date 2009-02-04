@@ -7,6 +7,7 @@ mkdir -p $HERE/.gems
 
 ## Setup local environment
 cat > $HERE/bash_env <<-EOF
+export HERE="$HERE"
 export GEM_HOME="$HERE/.gems"
 export GEM_PATH="\$GEM_HOME:/usr/lib/ruby/gems/1.8"
 export PATH="$HERE/bin:$HERE/git/bin:$HERE/git/libexec/git-core/:$HERE/.gems/bin:\$PATH"
@@ -52,8 +53,9 @@ ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite
 ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite3
 
 
-## Fix RubyGems binary
+## Fix RubyGems executable
 cat > $HERE/bin/gem <<-EOF
+#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
 require 'rubygems'
 require 'rubygems/gem_runner'
 require 'rubygems/exceptions'
@@ -69,7 +71,13 @@ EOF
 gem update --system
 
 ## Install some gems you'll almost certainly need
-gem install rails rack sqlite --no-ri --no-rdoc
+gem install rails rack ZenTest --no-ri --no-rdoc
+## Install sqlite3-ruby precompiled for OS X 10.5.* and Intel chips
+cd $HERE/src
+curl -LO http://github.com/JackDanger/apple_store/raw/1afcd2bacdf4c9631b8ed966b4a9c18a7b204bc4/sqlite3-ruby-1.2.4_precompiled.tgz
+tar xvzf sqlite3*.tgz
+mv sqlite3-ruby/sqlite3-ruby*.gemspec $HERE/.gems/specifications/
+mv sqlite3-ruby $HERE/.gems/gems/sqlite3-ruby-1.2.4
 
 ## Print Bash instructions
 echo "
