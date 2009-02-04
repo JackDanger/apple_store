@@ -51,12 +51,6 @@ mv sqlite*.bin $HERE/bin
 ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite
 ln -s $HERE/bin/sqlite*.bin $HERE/bin/sqlite3
 
-echo "
-You'll need to type the following command each time you want
-a terminal session to work for you:
-
-    source $HERE/bash_env
-"
 
 ## Fix RubyGems binary
 cat > $HERE/bin/gem <<-EOF
@@ -75,4 +69,12 @@ EOF
 gem update --system
 
 ## Install some gems you'll almost certainly need
-gem install rails rack sqlite3 --no-ri --no-rdoc
+gem install rails rack sqlite --no-ri --no-rdoc
+
+## Print Bash instructions
+echo "
+You'll need to type the following command each time you want
+a terminal session to work for you:
+
+    source $HERE/bash_env
+"
