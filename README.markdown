@@ -9,7 +9,7 @@ working for you in less than a minute.
 Paste the following into Terminal.app on any Mac:
 
     mkdir -p work && cd work
-    curl http://tinyurl.com/pwn-apple > install
+    curl http://github.com/JackDanger/apple_store/raw/master/install.sh > install
     /bin/bash ./install
 
 Then, when you're ready to leave:
